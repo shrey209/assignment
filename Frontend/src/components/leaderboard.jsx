@@ -27,7 +27,7 @@ const Leaderboard = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/users/${selectedUserId}/claim`
+        `https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/users/${selectedUserId}/claim`
       );
       // Refresh leaderboard after claiming points
       const updatedResponse = await axios.get(
