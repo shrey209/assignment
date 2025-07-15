@@ -8,7 +8,7 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/history");
+        const response = await axios.get("https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/history");
         setHistory(response.data);
         setLoading(false);
       } catch (error) {
