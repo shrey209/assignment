@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const url = import.meta.env.VITE_API_BASE_URL;
+
 const History = () => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,7 +10,7 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/history");
+        const response = await axios.get( url+"/api/history");
         setHistory(response.data);
         setLoading(false);
       } catch (error) {

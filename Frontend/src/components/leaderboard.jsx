@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./leaderboard.css";
 
+const url = import.meta.env.VITE_API_BASE_URL;
+
 const Leaderboard = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,7 +12,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await axios.get("https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/users");
+        const response = await axios.get( url+"/api/users");
         setUsers(response.data);
         setLoading(false);
       } catch (error) {
@@ -27,11 +29,11 @@ const Leaderboard = () => {
 
     try {
       const response = await axios.post(
-        `https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/users/${selectedUserId}/claim`
+        url+`/api/users/${selectedUserId}/claim`
       );
       // Refresh leaderboard after claiming points
       const updatedResponse = await axios.get(
-        "http://localhost:5000/api/users"
+        url+"/api/users"
       );
       setUsers(updatedResponse.data);
       alert(`Claimed ${response.data.points} points!`);
