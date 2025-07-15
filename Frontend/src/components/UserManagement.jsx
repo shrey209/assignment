@@ -8,7 +8,7 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/users");
+        const response = await axios.get("https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -20,7 +20,7 @@ const UserManagement = () => {
   const handleAddUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/users", {
+      const response = await axios.post("https://assignment12-bde3gjfgcvc2a8a8.centralindia-01.azurewebsites.net/api/users", {
         name: newUserName,
       });
       setUsers([...users, response.data]);
